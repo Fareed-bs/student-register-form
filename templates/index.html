@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Student Registration Form</title>
+    <!-- Move the stylesheet link to the head and use url_for to generate the correct path -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='form-style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Student Registration Form</h1>
+    <h2>Personal Details:</h2>
+    <form action="/" method="POST">
+      <p>
+        Name:
+        <!-- Add 'name' attributes to all inputs to capture data on submit -->
+        <input type="text" name="student_name" placeholder="Your name here" />
+        <br />
+      </p>
+
+      <p>
+        Mail Id:
+        <input type="email" name="email_id" placeholder="Your id here" />
+        <br />
+      </p>
+
+      <p>
+        Contact No:
+        <input type="tel" name="contact_no" placeholder="Your number here" />
+        <br />
+      </p>
+
+      <p>Address:</p>
+      <textarea
+        name="address"
+        rows="3"
+        cols="50"
+        placeholder="Your address here"
+      ></textarea>
+      <br />
+      <br />
+      <h2>Education:</h2>
+      <p>Institution name:</p>
+      <textarea
+        name="institution"
+        cols="80"
+        rows="1"
+        placeholder="College name here"
+      ></textarea>
+      <p>Branch:</p>
+      <select name="branch">
+        <option value="CSE">CSE</option>
+        <option value="ECE">ECE</option>
+        <option value="CIV">CIV</option>
+      </select>
+      <p>Percentage:</p>
+      <input type="number" name="percentage" placeholder="Enter number only" />
+      <br /><br />
+      <button type="submit">Submit</button>
+    </form>
+    <br />
+    <h3>View Registered Students</h3>
+    <ul>
+      <li><a href="/viewdetails">View Details</a></li>
+    </ul>
+  </body>
+</html>

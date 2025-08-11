@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Details</title>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='viewdetails-style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Registered Student Details</h1>
+
+    {% if not students %}
+    <p>No students registered yet.</p>
+    {% else %}
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Contact No</th>
+          <th>Address</th>
+          <th>Institution</th>
+          <th>Branch</th>
+          <th>Percentage</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for student in students %}
+        <tr>
+          <td>{{ student.student_name }}</td>
+          <td>{{ student.email_id }}</td>
+          <td>{{ student.contact_no }}</td>
+          <td>{{ student.address }}</td>
+          <td>{{ student.institution }}</td>
+          <td>{{ student.branch }}</td>
+          <td>{{ student.percentage }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+
+    <br />
+    <a href="/">Register Another Student</a>
+  </body>
+</html>
